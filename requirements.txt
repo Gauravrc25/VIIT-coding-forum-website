@@ -1,0 +1,4 @@
+Jinja2==2.8
+Flask
+gunicorn
+psycopg2
