@@ -1,12 +1,24 @@
 {% extends 'layout.html' %}
 
 {% block body %}
-  <body>
-
+  <header class="masthead" style="background-image: url('/static/img/402639179-coding-wallpapers.jpg')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="site-heading">
+              <h2>Welcome to Coding Forum VIIT</h2>
+              <span class="subheading">A Forum for helping each other and to grow together.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
     <div class="container">
 
       <form class="form-signin">
         <h2 class="form-signin-heading">Please sign in</h2>
+        <br>
         <label for="inputEmail" class="sr-only">Email address</label>
         <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
         <br>
@@ -24,7 +36,7 @@
 
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-  </body>
+
+
 
 {% endblock %}
