@@ -18,6 +18,10 @@ def contact():
 def post():
     return render_template('post.html')
 
+@app.route('/login')
+def login():
+    return render_template('login.html')
+
 @app.route('/static/<path:path>')
 def send_statics(path):
     return send_from_directory('static', path)
