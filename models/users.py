@@ -71,3 +71,49 @@ def new_post(email,typel,key):
 
 #new_post()
 
+def auth(email, key):
+    conn = psycopg2.connect(
+        database=url.path[1:],
+        user=url.username,
+        password=url.password,
+        host=url.hostname,
+        port=url.port
+    )
+    email = email.lower()
+    uid = 0
+    l_id = 0;
+    user_id = 0,
+    typel = ''
+    cur = conn.cursor()
+    
+    try :
+        cur.execute("select id from users where username='{0}'".format(email))
+        data = cur.fetchone()
+        if data == None:
+            return 'Invalid Cobinations',-1
+        
+        uid = data[0]
+        
+        cur.execute("select user_id,type,id from post where key='{0}'".format(key))
+        data =  cur.fetchone()
+        if data == None:
+            return 'Invalid Cobinations',-1
+        
+        user_id = data[0]
+        typel = data[1]
+        l_id = data[2]
+        #print(l_id)
+        
+        #print(uid," ",user_id," ",typel)
+        if uid != user_id:
+            return 'Invalid Cobinations',-1
+        else :
+            #print(typel,l_id)
+            return typel,l_id
+    except Exception as e:
+        print(e)
+        
+    finally:
+        cur.close()
+        conn.close()
+
