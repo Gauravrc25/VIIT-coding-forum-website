@@ -1,2 +1,6 @@
 /.idea
 /env
+/.vscode
+/controllers/__pycache__
+/models/__pycache__
+cmds.txt

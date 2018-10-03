@@ -5,7 +5,7 @@ parse.uses_netloc.append("postgres")
 url = parse.urlparse(os.environ["DATABASE_URL"])
 
 
-def isadmin(email,key):
+def check_admin_credentials(email,key):
     conn = psycopg2.connect(
         database=url.path[1:],
         user=url.username,
@@ -31,9 +31,7 @@ def isadmin(email,key):
         else:
             uid = data[0]
             return True,uid
-        
-        
-        
+
     except Exception as e:
         print(e)
         
